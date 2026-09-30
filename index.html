@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>朱家熇 | 个人主页</title>
+    <title>Jiahe Zhu | Personal Homepage</title>
     <style>
         * {
             margin: 0;
@@ -11,186 +11,436 @@
             box-sizing: border-box;
         }
         body {
-            font-family: "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-            max-width: 900px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f5f7fa;
+            color: #1f2937;
+            line-height: 1.65;
+        }
+
+        /* 顶部导航栏 */
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid #e0e0e0;
+        .nav-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e3a8a;
+            text-decoration: none;
         }
-        h1 {
-            font-size: 2.2em;
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+        .nav-links a {
+            color: #4b5563;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        /* 主容器 */
+        .container {
+            max-width: 1000px;
+            margin: 32px auto;
+            padding: 0 24px;
+        }
+
+        /* 卡片通用样式 */
+        .card {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        /* About Me 区块 */
+        .about-section {
+            display: grid;
+            grid-template-columns: 2.2fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        .about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 16px;
+        }
+        .about-info p {
             margin-bottom: 10px;
-            color: #1a365d;
+            color: #374151;
         }
-        .subtitle {
-            font-size: 1.1em;
-            color: #666;
-            margin-bottom: 15px;
+        .about-info .highlight {
+            color: #1e3a8a;
+            font-weight: 500;
         }
-        .contact {
-            font-size: 0.95em;
-            color: #555;
+        .contact-links {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
         }
-        section {
-            margin-bottom: 40px;
+        .contact-links a {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
         }
-        h2 {
-            font-size: 1.4em;
-            color: #1a365d;
+        .contact-links a:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+        .avatar-box {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            overflow: hidden;
+            background-color: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+        }
+        .avatar-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 区块标题 */
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #1e3a8a;
             margin-bottom: 20px;
             padding-bottom: 8px;
-            border-bottom: 2px solid #3182ce;
-            display: inline-block;
+            border-bottom: 2px solid #eff6ff;
         }
+
+        /* 列表项通用 */
         .item {
-            margin-bottom: 20px;
-            padding-left: 15px;
-            border-left: 3px solid #e2e8f0;
+            margin-bottom: 18px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #f3f4f6;
+        }
+        .item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
         }
         .item-title {
             font-weight: 600;
-            font-size: 1.05em;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
         .item-meta {
-            color: #666;
-            font-size: 0.9em;
+            color: #6b7280;
+            font-size: 0.9rem;
             margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
         }
-        ul {
+        .item-desc ul {
             padding-left: 20px;
-            margin-top: 5px;
+            margin-top: 6px;
         }
-        li {
-            margin-bottom: 5px;
+        .item-desc li {
+            margin-bottom: 4px;
+            color: #4b5563;
         }
-        .grid {
+
+        /* 两栏布局 */
+        .two-column {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 40px;
         }
-        @media (max-width: 650px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
-            h1 {
-                font-size: 1.8em;
-            }
+
+        /* News 时间线 */
+        .news-item {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 16px;
+            margin-bottom: 12px;
         }
+        .news-date {
+            font-weight: 500;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        .news-content {
+            color: #374151;
+        }
+        .news-content a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        /* 技能标签 */
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill-tag {
+            background-color: #eff6ff;
+            color: #1e40af;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* 页脚 */
         footer {
             text-align: center;
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid #e0e0e0;
-            color: #999;
-            font-size: 0.85em;
+            color: #9ca3af;
+            font-size: 0.85rem;
+            padding: 20px 0 40px;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+            .avatar-box {
+                max-width: 200px;
+                margin: 0 auto;
+            }
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .nav-links {
+                gap: 16px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>朱家熇</h1>
-        <p class="subtitle">安徽大学 计算机科学与技术学院 软件工程专业 本科生</p>
-        <p class="contact">
-            📧 e22314175@stu.ahu.edu.cn | 📍 安徽 合肥
-        </p>
-    </header>
-
-    <section>
-        <h2>个人简介</h2>
-        <p>中共预备党员，专业排名2/182，研究方向涵盖图神经网络、可信人工智能、进化计算与三维重建。以第一作者身份发表CCF-C类会议论文并获口头报告录用，参与多项省级科研项目与学科竞赛，获得国家级、省级奖项多项。</p>
-        <p style="margin-top:10px;"><strong>GPA：</strong>4.34/5.0 &nbsp;&nbsp; <strong>专业排名：</strong>2/182</p>
-    </section>
-
-    <section>
-        <h2>教育背景</h2>
-        <div class="item">
-            <div class="item-title">安徽大学（211 双一流） 计算机科学与技术学院</div>
-            <div class="item-meta">软件工程专业 本科 | 2022 - 至今</div>
-            <ul>
-                <li>核心数理课程：高等数学(99/100)、离散数学(97)、线性代数(98)、概率论与数理统计(100)</li>
-                <li>核心专业课程：算法分析与设计(98)、操作系统(94)、编译原理(95)、计算机组成原理(91)</li>
-                <li>荣誉奖项：国元证券奖学金、优秀学生奖学金、三好学生标兵、十佳团干部</li>
-            </ul>
-        </div>
-    </section>
-
-    <section>
-        <h2>论文发表</h2>
-        <div class="item">
-            <div class="item-title">Direction-Anchored Decoupled Dirichlet Evidential Learning for Reliable Graph Node Classification</div>
-            <div class="item-meta">第一作者 | ICIC 2026 (CCF-C类) | 口头报告录用，收录于LNAI</div>
-            <p>提出面向图节点分类的方向锚定解耦式Dirichlet证据建模方法，将类别方向与证据强度分离建模，结合温度缩放、原型密度和图结构传播，提升模型校准与不确定性估计能力。</p>
-        </div>
-        <div class="item">
-            <div class="item-title">RCD-EMT: Robust Community Detection in Noisy Networks via Evolutionary Multitask Optimization</div>
-            <div class="item-meta">第三作者 | IEEE TETCI (JCR 1区, IF=6.5) | 在投</div>
-            <p>针对网络噪声与攻击导致的检测精度下降问题，提出进化式多任务社区检测框架，通过结构增强与社区检测的双向知识迁移实现鲁棒的社区结构识别。</p>
-        </div>
-    </section>
-
-    <section>
-        <h2>科研项目</h2>
-        <div class="item">
-            <div class="item-title">含噪网络鲁棒社区检测进化多任务优化项目</div>
-            <div class="item-meta">省级大学生创新创业训练计划 | 核心成员 | 2025.04 - 2026.04</div>
-            <ul>
-                <li>引入动态候选池更新机制，提升候选边搜索的自适应性与噪声鲁棒性</li>
-                <li>完成多种对比算法复现，在多数据集、多噪声场景下开展性能对照实验</li>
-            </ul>
-        </div>
-        <div class="item">
-            <div class="item-title">智建三维：室外大规模场景三维重建一体化解决方案</div>
-            <div class="item-meta">中国国际大学生创新大赛 | 核心成员 | 2025.04 - 2025.06</div>
-            <ul>
-                <li>针对传统三维重建方案痛点，参与研发Next3D端云协同分布式重建系统</li>
-                <li>开展COLMAP、ICP等传统算法的多数据集对比实验，整理性能数据报告</li>
-                <li>获中国国际大学生创新大赛安徽大学二等奖</li>
-            </ul>
-        </div>
-    </section>
-
-    <section>
-        <h2>竞赛获奖</h2>
-        <div class="grid">
-            <div>
-                <h3 style="font-size:1.05em; margin-bottom:10px; color:#2c5282;">国家级</h3>
-                <ul>
-                    <li>正大杯市场调研与分析大赛 全国二等奖（2026）</li>
-                    <li>码蹄杯程序设计大赛 全国优秀奖（2025）</li>
-                </ul>
-            </div>
-            <div>
-                <h3 style="font-size:1.05em; margin-bottom:10px; color:#2c5282;">省级</h3>
-                <ul>
-                    <li>蓝桥杯程序设计大赛 安徽省一等奖（2026）</li>
-                    <li>百度之星程序设计大赛 安徽省银奖（2025）</li>
-                    <li>码蹄杯程序设计大赛 安徽省银奖（2025）</li>
-                    <li>蓝桥杯程序设计大赛 安徽省二等奖（2025）</li>
-                </ul>
+    <!-- 顶部导航 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-name">Jiahe Zhu</a>
+            <div class="nav-links">
+                <a href="#about">Home</a>
+                <a href="#publications">Publications</a>
+                <a href="#research">Research</a>
+                <a href="#awards">Awards</a>
             </div>
         </div>
-    </section>
+    </nav>
 
-    <section>
-        <h2>技术技能</h2>
-        <ul>
-            <li><strong>编程语言：</strong>Python、Java、C/C++</li>
-            <li><strong>工具与平台：</strong>Linux 基础操作、Git、PyTorch、关系型数据库</li>
-            <li><strong>核心能力：</strong>数据结构与算法、图神经网络建模、算法复现与实验评测</li>
-        </ul>
-    </section>
+    <div class="container">
+        <!-- About Me -->
+        <div class="card" id="about">
+            <div class="about-section">
+                <div class="about-info">
+                    <h1 class="about-title">About Me</h1>
+                    <p>I am an undergraduate student majoring in <span class="highlight">Software Engineering</span> at the School of Computer Science and Technology, <span class="highlight">Anhui University</span> (211 & Double First-Class University).</p>
+                    <p style="margin-top: 10px;">My research focuses on <strong>Graph Neural Networks</strong>, <strong>Trustworthy AI</strong>, <strong>Evolutionary Computation</strong>, and <strong>3D Reconstruction</strong>. I aim to develop reliable and robust intelligent systems for graph data learning and computer vision scenarios.</p>
+                    <p style="margin-top: 10px;"><strong>GPA:</strong> 4.34/5.0 &nbsp;|&nbsp; <strong>Rank:</strong> 2/182 (Top 1.1%)</p>
+                    
+                    <div class="contact-links">
+                        <a href="mailto:e22314175@stu.ahu.edu.cn">📧 Email</a>
+                        <a href="#" target="_blank">🔗 Google Scholar</a>
+                        <a href="#" target="_blank">💻 GitHub</a>
+                        <a href="#" target="_blank">🆔 ORCID</a>
+                    </div>
+                </div>
+                <div class="avatar-box">
+                    <!-- 将下方一行替换为 <img src="你的照片地址" alt="Jiahe Zhu"> 即可显示头像 -->
+                    <span>Your Photo</span>
+                </div>
+            </div>
+        </div>
 
-    <footer>
-        <p>© 2026 朱家熇 | 本站由 GitHub Pages 提供部署支持</p>
-    </footer>
+        <!-- Research Interests -->
+        <div class="card">
+            <h2 class="section-title">Research Interests</h2>
+            <ul style="padding-left: 20px; color: #374151;">
+                <li>Graph Neural Networks & Uncertainty Estimation</li>
+                <li>Trustworthy AI & Model Calibration</li>
+                <li>Evolutionary Computation & Community Detection</li>
+                <li>3D Reconstruction & Computer Vision</li>
+            </ul>
+        </div>
+
+        <!-- Education -->
+        <div class="card">
+            <h2 class="section-title">Education</h2>
+            <div class="item">
+                <div class="item-title">Anhui University</div>
+                <div class="item-meta">
+                    <span>B.Eng. in Software Engineering</span>
+                    <span>Sep. 2022 – Present</span>
+                </div>
+                <div class="item-desc">
+                    <ul>
+                        <li>School of Computer Science and Technology; 211 Project & Double First-Class Construction University</li>
+                        <li>Core Courses: Advanced Mathematics (99/100), Discrete Mathematics (97), Linear Algebra (98), Probability Theory (100), Algorithm Analysis (98), Operating Systems (94), Compilation Principles (95)</li>
+                        <li>Honors: Guoyuan Securities Scholarship, Excellent Student Scholarship, Model Student of Three Good Qualities, Excellent Class Cadre</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Publications -->
+        <div class="card" id="publications">
+            <h2 class="section-title">Publications</h2>
+            
+            <div class="item">
+                <div class="item-title">Direction-Anchored Decoupled Dirichlet Evidential Learning for Reliable Graph Node Classification</div>
+                <div class="item-meta">
+                    <span><strong>First Author</strong> · ICIC 2026 (CCF-C) · Oral Presentation</span>
+                    <span>2026</span>
+                </div>
+                <div class="item-desc">
+                    <p style="color: #4b5563;">Accepted by Lecture Notes in Artificial Intelligence (LNAI). We propose a direction-anchored decoupled Dirichlet evidence modeling method, which separates category direction and evidence strength, and integrates temperature scaling, prototype density and graph structure propagation to improve model calibration and uncertainty estimation.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-title">RCD-EMT: Robust Community Detection in Noisy Networks via Evolutionary Multitask Optimization</div>
+                <div class="item-meta">
+                    <span><strong>Third Author</strong> · IEEE TETCI (JCR Q1, IF=6.5)</span>
+                    <span>Under Review</span>
+                </div>
+                <div class="item-desc">
+                    <p style="color: #4b5563;">We propose an evolutionary multitask framework for robust community detection. Through synchronous evolution and bidirectional knowledge transfer between community detection and structure enhancement, it achieves accurate and robust community identification in noisy networks.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Research Experience -->
+        <div class="card" id="research">
+            <h2 class="section-title">Research Experience</h2>
+
+            <div class="item">
+                <div class="item-title">Direction-Anchored Decoupled Dirichlet Evidential Learning</div>
+                <div class="item-meta">
+                    <span>Project Lead & First Author</span>
+                    <span>Sep. 2025 – Apr. 2026</span>
+                </div>
+                <div class="item-desc">
+                    <ul>
+                        <li>Proposed a novel decoupled evidence modeling paradigm for reliable graph node classification</li>
+                        <li>Built a unified GNN experimental framework with multi-backbone support, hyperparameter search and standardized evaluation</li>
+                        <li>Completed main experiments, ablation studies and robustness verification on multiple benchmark datasets</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-title">Robust Community Detection in Noisy Networks</div>
+                <div class="item-meta">
+                    <span>Core Member · Provincial Innovation & Entrepreneurship Program</span>
+                    <span>Apr. 2025 – Apr. 2026</span>
+                </div>
+                <div class="item-desc">
+                    <ul>
+                        <li>Designed a dynamic candidate pool update mechanism to improve adaptive edge search and noise robustness</li>
+                        <li>Reproduced multiple baseline algorithms and conducted comparative experiments under various datasets and noise settings</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-title">Next3D: End-Cloud Collaborative 3D Reconstruction System</div>
+                <div class="item-meta">
+                    <span>Core Member · China International College Students Innovation Competition</span>
+                    <span>Apr. 2025 – Jun. 2025</span>
+                </div>
+                <div class="item-desc">
+                    <ul>
+                        <li>Developed an end-cloud collaborative distributed solution for large-scale outdoor 3D reconstruction</li>
+                        <li>Conducted comparative experiments on COLMAP, ICP and other traditional algorithms; compiled performance analysis reports</li>
+                        <li>Awarded Second Prize of Anhui University Division</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Awards & Honors -->
+        <div class="card" id="awards">
+            <h2 class="section-title">Awards & Honors</h2>
+            
+            <div class="two-column">
+                <div>
+                    <h3 style="font-size: 1.05rem; color: #1e3a8a; margin-bottom: 12px;">National Level</h3>
+                    <ul style="padding-left: 20px;">
+                        <li>Second Prize, Zhengda Cup Market Research & Analysis Competition, 2026</li>
+                        <li>National Excellence Award, Matiji Cup Programming Contest, 2025</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.05rem; color: #1e3a8a; margin-bottom: 12px;">Provincial Level</h3>
+                    <ul style="padding-left: 20px;">
+                        <li>First Prize, Lanqiao Cup Programming Contest (Anhui), 2026</li>
+                        <li>Silver Award, Baidu Star Programming Contest (Anhui), 2025</li>
+                        <li>Silver Award, Matiji Cup Programming Contest (Anhui), 2025</li>
+                        <li>Second Prize, Lanqiao Cup Programming Contest (Anhui), 2025</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="card">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skill-tags">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">C/C++</span>
+                <span class="skill-tag">PyTorch</span>
+                <span class="skill-tag">Linux</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Relational Databases</span>
+                <span class="skill-tag">Data Structures & Algorithms</span>
+                <span class="skill-tag">Graph Neural Networks</span>
+            </div>
+        </div>
+
+        <!-- News -->
+        <div class="card">
+            <h2 class="section-title">Recent News</h2>
+            <div class="news-item">
+                <div class="news-date">Jul 2026</div>
+                <div class="news-content">Our paper on decoupled Dirichlet evidential learning was accepted by ICIC 2026 as oral presentation.</div>
+            </div>
+            <div class="news-item">
+                <div class="news-date">Apr 2026</div>
+                <div class="news-content">Won the Second Prize of Zhengda Cup Market Research and Analysis Competition (National Level).</div>
+            </div>
+            <div class="news-item">
+                <div class="news-date">Mar 2026</div>
+                <div class="news-content">Won the First Prize of Lanqiao Cup Programming Contest in Anhui Province.</div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 Jiahe Zhu · Last updated: Sep 2026 · Hosted by GitHub Pages</p>
+        </footer>
+    </div>
 </body>
 </html>
