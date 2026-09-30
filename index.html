@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>朱家熇 | 个人主页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            color: #1a365d;
+        }
+        .subtitle {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .contact {
+            font-size: 0.95em;
+            color: #555;
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        h2 {
+            font-size: 1.4em;
+            color: #1a365d;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #3182ce;
+            display: inline-block;
+        }
+        .item {
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 3px solid #e2e8f0;
+        }
+        .item-title {
+            font-weight: 600;
+            font-size: 1.05em;
+            margin-bottom: 5px;
+        }
+        .item-meta {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+        ul {
+            padding-left: 20px;
+            margin-top: 5px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 650px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #999;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>朱家熇</h1>
+        <p class="subtitle">安徽大学 计算机科学与技术学院 软件工程专业 本科生</p>
+        <p class="contact">
+            📧 e22314175@stu.ahu.edu.cn | 📍 安徽 合肥
+        </p>
+    </header>
+
+    <section>
+        <h2>个人简介</h2>
+        <p>中共预备党员，专业排名2/182，研究方向涵盖图神经网络、可信人工智能、进化计算与三维重建。以第一作者身份发表CCF-C类会议论文并获口头报告录用，参与多项省级科研项目与学科竞赛，获得国家级、省级奖项多项。</p>
+        <p style="margin-top:10px;"><strong>GPA：</strong>4.34/5.0 &nbsp;&nbsp; <strong>专业排名：</strong>2/182</p>
+    </section>
+
+    <section>
+        <h2>教育背景</h2>
+        <div class="item">
+            <div class="item-title">安徽大学（211 双一流） 计算机科学与技术学院</div>
+            <div class="item-meta">软件工程专业 本科 | 2022 - 至今</div>
+            <ul>
+                <li>核心数理课程：高等数学(99/100)、离散数学(97)、线性代数(98)、概率论与数理统计(100)</li>
+                <li>核心专业课程：算法分析与设计(98)、操作系统(94)、编译原理(95)、计算机组成原理(91)</li>
+                <li>荣誉奖项：国元证券奖学金、优秀学生奖学金、三好学生标兵、十佳团干部</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>论文发表</h2>
+        <div class="item">
+            <div class="item-title">Direction-Anchored Decoupled Dirichlet Evidential Learning for Reliable Graph Node Classification</div>
+            <div class="item-meta">第一作者 | ICIC 2026 (CCF-C类) | 口头报告录用，收录于LNAI</div>
+            <p>提出面向图节点分类的方向锚定解耦式Dirichlet证据建模方法，将类别方向与证据强度分离建模，结合温度缩放、原型密度和图结构传播，提升模型校准与不确定性估计能力。</p>
+        </div>
+        <div class="item">
+            <div class="item-title">RCD-EMT: Robust Community Detection in Noisy Networks via Evolutionary Multitask Optimization</div>
+            <div class="item-meta">第三作者 | IEEE TETCI (JCR 1区, IF=6.5) | 在投</div>
+            <p>针对网络噪声与攻击导致的检测精度下降问题，提出进化式多任务社区检测框架，通过结构增强与社区检测的双向知识迁移实现鲁棒的社区结构识别。</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>科研项目</h2>
+        <div class="item">
+            <div class="item-title">含噪网络鲁棒社区检测进化多任务优化项目</div>
+            <div class="item-meta">省级大学生创新创业训练计划 | 核心成员 | 2025.04 - 2026.04</div>
+            <ul>
+                <li>引入动态候选池更新机制，提升候选边搜索的自适应性与噪声鲁棒性</li>
+                <li>完成多种对比算法复现，在多数据集、多噪声场景下开展性能对照实验</li>
+            </ul>
+        </div>
+        <div class="item">
+            <div class="item-title">智建三维：室外大规模场景三维重建一体化解决方案</div>
+            <div class="item-meta">中国国际大学生创新大赛 | 核心成员 | 2025.04 - 2025.06</div>
+            <ul>
+                <li>针对传统三维重建方案痛点，参与研发Next3D端云协同分布式重建系统</li>
+                <li>开展COLMAP、ICP等传统算法的多数据集对比实验，整理性能数据报告</li>
+                <li>获中国国际大学生创新大赛安徽大学二等奖</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>竞赛获奖</h2>
+        <div class="grid">
+            <div>
+                <h3 style="font-size:1.05em; margin-bottom:10px; color:#2c5282;">国家级</h3>
+                <ul>
+                    <li>正大杯市场调研与分析大赛 全国二等奖（2026）</li>
+                    <li>码蹄杯程序设计大赛 全国优秀奖（2025）</li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="font-size:1.05em; margin-bottom:10px; color:#2c5282;">省级</h3>
+                <ul>
+                    <li>蓝桥杯程序设计大赛 安徽省一等奖（2026）</li>
+                    <li>百度之星程序设计大赛 安徽省银奖（2025）</li>
+                    <li>码蹄杯程序设计大赛 安徽省银奖（2025）</li>
+                    <li>蓝桥杯程序设计大赛 安徽省二等奖（2025）</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>技术技能</h2>
+        <ul>
+            <li><strong>编程语言：</strong>Python、Java、C/C++</li>
+            <li><strong>工具与平台：</strong>Linux 基础操作、Git、PyTorch、关系型数据库</li>
+            <li><strong>核心能力：</strong>数据结构与算法、图神经网络建模、算法复现与实验评测</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>© 2026 朱家熇 | 本站由 GitHub Pages 提供部署支持</p>
+    </footer>
+</body>
+</html>
